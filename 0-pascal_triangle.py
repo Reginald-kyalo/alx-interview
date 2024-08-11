@@ -6,8 +6,8 @@ def pascal_triangle(n):
     """
     if n <= 0:
         return []
-    
-    row  = [1] * (n)
+
+    row = [1] * n
     result = []
     for r in range(n):
         result.append(row[:r + 1])
