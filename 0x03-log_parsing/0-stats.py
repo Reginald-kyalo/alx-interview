@@ -27,6 +27,7 @@ def print_statistics():
     for status_code in sorted(status_code_counts):
         if status_code_counts[status_code] > 0:
             print(f"{status_code}: {status_code_counts[status_code]}")
+    sys.stdout.flush()
 
 
 def handle_interrupt(signal_received, frame):
