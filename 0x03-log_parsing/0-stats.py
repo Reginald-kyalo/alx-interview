@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """log parsing"""
 import sys
 import re
@@ -28,14 +28,17 @@ def print_statistics():
         if status_code_counts[status_code] > 0:
             print(f"{status_code}: {status_code_counts[status_code]}")
 
+
 def handle_interrupt(signal_received, frame):
-    """Handle keyboard interrupt (CTRL + C) 
+    """Handle keyboard interrupt (CTRL + C)
     to print statistics before exiting.
     """
     print_statistics()
     sys.exit(0)
 
+
 signal(SIGINT, handle_interrupt)
+
 
 try:
     for line in sys.stdin:
@@ -43,12 +46,12 @@ try:
         if match:
             status_code = int(match.group(3))
             file_size = int(match.group(4))
-            
+
             total_file_size += file_size
-            
+
             if status_code in status_code_counts:
                 status_code_counts[status_code] += 1
-            
+
             line_count += 1
 
             if line_count % 10 == 0:
